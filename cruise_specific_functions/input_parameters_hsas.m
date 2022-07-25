@@ -8,30 +8,29 @@
 	VBS = true;
 
 # year of dataset
-	DEF_YEAR = 2015;
+	DEF_YEAR = 2022;
 	
 # dates to be processed
-	DAY_START = "259";
-	DAY_STOP = "305";
+	DAY_START = "194"; % 13th July
+	DAY_STOP = "202"; %21 July
 
 # cruise name
-	CRUISE = "AMT25";
+	CRUISE = "FICE22";
 
 # HSAS instruments serial numbers
 	INSTRUMENT = "hsas";
 	radiometers = {"ES", "LI", "LT"};#  (similar instrument must be listed one after the other)
-	sn = {"258", "222", "223"};
+	sn = {"2027A", "2054A", "464"};
 	file_ext = {"H[ES][DE]", "*H[LS][DL]", "*H[LS][DL]"}; # wildcards to read files for each instrument
-	cal_files_pre = {"HSE258G.cal", "HSL222G.cal", "HSL223H.cal"};
-	cal_files_post = {"HSE258H.cal", "HSL222H.cal", "HSL223I.cal"};
 	
-
+	cal_files_pre = {"HSE2027A.cal", "HSL2054A.cal", "HSL464.cal"};
+	cal_files_post = {"HSE2027A.cal", "HSL2054A.cal", "HSL464.cal"};
 
 # Set wavelength range
    wv = [350:2:860]';  #Consistent with JRC format
 
 # main dir
-MAIN_DIR = "/users/rsg/junl/scratch_network/HSAS/AMT25/";   
+MAIN_DIR = "/users/rsg/tjor/scratch_network/HyperSAS/AMT25/";   
 
 
 ### INSTRUMENT serial numbers for trios (at least) are hardcoded
@@ -43,12 +42,12 @@ OSX = 0;
 
 
 DIR_GPS = [MAIN_DIR "Ship_uway/"];  # NOTE: each day of ancillary data must be separately stored in a directory with name yyyymmdd (e.g., 20150926)
-GLOB_GPS = "/seatex-gga.ACO";
+% GLOB_GPS = "/seatex-gga.ACO"; % lat = 45.31435, lon = 12.508317
 
-DIR_ATT = [MAIN_DIR "Ship_uway/"]; # pitch and roll # NOTE: each day of ancillary data must be separately stored in a directory with name yyyymmdd (e.g., 20150926)
-GLOB_ATT = "/tsshrp.ACO";
+% DIR_ATT = [MAIN_DIR "Ship_uway/"]; # pitch and roll # NOTE: each day of ancillary data must be separately stored in a directory with name yyyymmdd (e.g., 20150926)
+% GLOB_ATT = "/tsshrp.ACO";
 
-DIR_WIND = [MAIN_DIR "Ship_uway/"];
+DIR_WIND = [MAIN_DIR "Ship_uway/"]; % change directory and read excel file for wind
 GLOB_WIND = "/anemometer.ACO";# glob pattern for wind data to concatenate after DATESTR
 
 DIR_SURF = [MAIN_DIR "Ship_uway/"];
